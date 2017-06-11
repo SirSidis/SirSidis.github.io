@@ -1,248 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
-    <title>Marvel Characters | Force layout with images</title>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <style>
-      @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
-      body {font-family: "Source Code Pro", Consolas, monaco, monospace; line-height: 160%; font-size: 16px;  margin: 0; }
-      path.link {
-        fill: none;
-        stroke-width: 2px;
-      }
-      .node:not(:hover) .nodetext {
-        display: none;
-      }
-      h1 { font-size: 36px; margin: 10px 0; text-transform: uppercase; font-weight: normal;}
-      h2, h3 { font-size: 18px; margin: 5px 0 ; font-weight: normal;}
-      header {padding: 20px; position: absolute; top: 0; left: 0;}
-      a:link { color: #EE3124; text-decoration: none;}
-      a:visited { color: #EE3124; }
-      a:hover { color: #A4CD39; text-decoration: underline;}
-      a:active { color: #EE3124; }
-    </style>
+    <title>Albert Aboaf</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Theme CSS -->
+    <link href="css/grayscale.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
-    
 
-<body>
-    <header>
-      <h1>Marvel Characters</h1>
-      <h2>Click to view their identity</h2>
-      <h3>And link to their web page!</h3>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i> <span class="light">Albert Aboaf</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#resume">Resume</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h1 class="brand-heading">Albert Aboaf</h1>
+                        <p class="intro-text">Full Stack Developer</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <!-- container for force layout visualisation  -->
-    <section id="vis"></section> 
-<script>
 
-// some colour variables
-  var tcBlack = "#130C0E";
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>About Me</h2>
+                <p>I am a first year student at the University of Chicago, hoping to eventually pursue the 4 year dual masters/bachelors degree in Computer Science</p>
+                <p>I currently work as a data engineer at the <a href="https://margoliashlab.uchicago.edu/">Margoliash Lab</a> and perform research in computer vision on the side.</p>
+            </div>
+        </div>
+    </section>
 
-// rest of vars
-var w = 960,
-    h = 800,
-    maxNodeSize = 50,
-    x_browser = 20,
-    y_browser = 25,
-    root;
- 
-var vis;
-var force = d3.layout.force(); 
+    <!-- Download Section -->
+    <section id="resume" class="content-section text-center">
+        <div class="resume-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>RESUME</h2>
+                    <p>You can view my resume and qualification here.</p>
+                    <a href="https://drive.google.com/file/d/0BxVispdKvmEQOU5iUU8xUEpLQWc/view?usp=sharing" class="btn btn-default btn-lg"></i> <span class="network-name">Resume</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-vis = d3.select("#vis").append("svg").attr("width", w).attr("height", h);
- 
-d3.json("marvel.json", function(json) {
- 
-  root = json;
-  root.fixed = true;
-  root.x = w / 2;
-  root.y = h / 4;
- 
- 
-        // Build the path
-  var defs = vis.insert("svg:defs")
-      .data(["end"]);
- 
- 
-  defs.enter().append("svg:path")
-      .attr("d", "M0,-5L10,0L0,5");
- 
-     update();
-});
- 
- 
-/**
- *   
- */
-function update() {
-  var nodes = flatten(root),
-      links = d3.layout.tree().links(nodes);
- 
-  // Restart the force layout.
-  force.nodes(nodes)
-        .links(links)
-        .gravity(0.05)
-    .charge(-1500)
-    .linkDistance(100)
-    .friction(0.5)
-    .linkStrength(function(l, i) {return 1; })
-    .size([w, h])
-    .on("tick", tick)
-        .start();
- 
-   var path = vis.selectAll("path.link")
-      .data(links, function(d) { return d.target.id; });
- 
-    path.enter().insert("svg:path")
-      .attr("class", "link")
-      // .attr("marker-end", "url(#end)")
-      .style("stroke", "#eee");
- 
- 
-  // Exit any old paths.
-  path.exit().remove();
- 
- 
- 
-  // Update the nodes…
-  var node = vis.selectAll("g.node")
-      .data(nodes, function(d) { return d.id; });
- 
- 
-  // Enter any new nodes.
-  var nodeEnter = node.enter().append("svg:g")
-      .attr("class", "node")
-      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
-      .on("click", click)
-      .call(force.drag);
- 
-  // Append a circle
-  nodeEnter.append("svg:circle")
-      .attr("r", function(d) { return Math.sqrt(d.size) / 10 || 4.5; })
-      .style("fill", "#eee");
- 
-   
-  // Append images
-  var images = nodeEnter.append("svg:image")
-        .attr("xlink:href",  function(d) { return d.img;})
-        .attr("x", function(d) { return -25;})
-        .attr("y", function(d) { return -25;})
-        .attr("height", 50)
-        .attr("width", 50);
-  
-  // make the image grow a little on mouse over and add the text details on click
-  var setEvents = images
-          // Append hero text
-          .on( 'click', function (d) {
-              d3.select("h1").html(d.hero); 
-              d3.select("h2").html(d.name); 
-              d3.select("h3").html ("Take me to " + "<a href='" + d.link + "' >"  + d.hero + " web page ?"+ "</a>" ); 
-           })
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Information</h2>
 
-          .on( 'mouseenter', function() {
-            // select element in current context
-            d3.select( this )
-              .transition()
-              .attr("x", function(d) { return -60;})
-              .attr("y", function(d) { return -60;})
-              .attr("height", 100)
-              .attr("width", 100);
-          })
-          // set back
-          .on( 'mouseleave', function() {
-            d3.select( this )
-              .transition()
-              .attr("x", function(d) { return -25;})
-              .attr("y", function(d) { return -25;})
-              .attr("height", 50)
-              .attr("width", 50);
-          });
+                <p><a href="mailto:aaboaf@gmail.com">aaboaf@uchicago.edu/aaboaf@gmail.com</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://github.com/SirSidis" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com/albert.aboaf" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/albert-aboaf-569b599b/" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">LinkedIn</span></a>
+                    </li>
+                    <li>
 
-  // Append hero name on roll over next to the node as well
-  nodeEnter.append("text")
-      .attr("class", "nodetext")
-      .attr("x", x_browser)
-      .attr("y", y_browser +15)
-      .attr("fill", tcBlack)
-      .text(function(d) { return d.hero; });
- 
- 
-  // Exit any old nodes.
-  node.exit().remove();
- 
- 
-  // Re-select for update.
-  path = vis.selectAll("path.link");
-  node = vis.selectAll("g.node");
- 
-function tick() {
- 
- 
-    path.attr("d", function(d) {
- 
-     var dx = d.target.x - d.source.x,
-           dy = d.target.y - d.source.y,
-           dr = Math.sqrt(dx * dx + dy * dy);
-           return   "M" + d.source.x + "," 
-            + d.source.y 
-            + "A" + dr + "," 
-            + dr + " 0 0,1 " 
-            + d.target.x + "," 
-            + d.target.y;
-  });
-    node.attr("transform", nodeTransform);    
-  }
-}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
- 
-/**
- * Gives the coordinates of the border for keeping the nodes inside a frame
- * http://bl.ocks.org/mbostock/1129492
- */ 
-function nodeTransform(d) {
-  d.x =  Math.max(maxNodeSize, Math.min(w - (d.imgwidth/2 || 16), d.x));
-    d.y =  Math.max(maxNodeSize, Math.min(h - (d.imgheight/2 || 16), d.y));
-    return "translate(" + d.x + "," + d.y + ")";
-   }
- 
-/**
- * Toggle children on click.
- */ 
-function click(d) {
-  if (d.children) {
-    d._children = d.children;
-    d.children = null;
-  } else {
-    d.children = d._children;
-    d._children = null;
-  }
- 
-  update();
-}
- 
- 
-/**
- * Returns a list of all nodes under the root.
- */ 
-function flatten(root) {
-  var nodes = []; 
-  var i = 0;
- 
-  function recurse(node) {
-    if (node.children) 
-      node.children.forEach(recurse);
-    if (!node.id) 
-      node.id = ++i;
-    nodes.push(node);
-  }
- 
-  recurse(root);
-  return nodes;
-} 
-  
-  
-</script>
+    <!-- Map Section -->
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>@Albert Aboaf 2017</p>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+
+    <!-- Theme JavaScript -->
+    <script src="js/grayscale.min.js"></script>
 
 </body>
+
 </html>
